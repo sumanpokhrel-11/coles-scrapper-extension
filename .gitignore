@@ -1,0 +1,41 @@
+# ==========================================
+# 1. Application Data & Caches
+# ==========================================
+# Do not commit the raw or normalized JSON databases
+/data/
+
+# ==========================================
+# 2. Python & Virtual Environments
+# ==========================================
+venv/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# ==========================================
+# 3. Environment Variables & Secrets
+# ==========================================
+.env
+.flaskenv
+*.pem
+
+# ==========================================
+# 4. OS & IDE Specific
+# ==========================================
+# Mac
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Editors
+.vscode/
+.idea/
+*.swp
+
+# ==========================================
+# 5. Logs & Temporary Files
+# ==========================================
+*.log
+logs/
