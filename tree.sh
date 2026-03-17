@@ -1,3 +1,3 @@
 #!/bin/bash
 
-tree -I venv . | grep -v __
+tree -I venv . | grep -v __ | grep -v cpython

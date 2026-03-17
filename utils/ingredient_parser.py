@@ -1,12 +1,17 @@
 import re
 
-def _split_at_depth_zero(raw_str: str, delimiter: str = ',') -> list:
+def _sanitize_ocr(raw_str: str) -> str:
+    # Fixes "Eu,calyptus" -> "Eucalyptus" and "Dextr,in" -> "Dextrin"
+    return re.sub(r'(?<=[a-zA-Z]),(?=[a-z])', '', raw_str)
+
+def _split_at_depth_zero(raw_str: str, delimiters: tuple = (',', ':')) -> list:
     items, current_item, depth = [], [], 0
     for char in raw_str:
         if char == '(': depth += 1
         elif char == ')': depth -= 1
         
-        if char == delimiter and depth == 0:
+        # Now splits on any character in the delimiters tuple
+        if char in delimiters and depth == 0:
             items.append(''.join(current_item).strip())
             current_item = []
         else:
@@ -14,7 +19,9 @@ def _split_at_depth_zero(raw_str: str, delimiter: str = ',') -> list:
             
     if current_item:
         items.append(''.join(current_item).strip().rstrip('.'))
-    return items
+        
+    # Safely filter out empty strings in case of trailing delimiters or "::"
+    return [item for item in items if item]
 
 def _parse_single_ingredient(raw_item: str) -> dict:
     if not raw_item: return None
@@ -40,4 +47,5 @@ def _parse_single_ingredient(raw_item: str) -> dict:
 
 def parse_ingredient_tree(raw_str: str) -> list:
     if not raw_str: return []
-    return [parsed for item in _split_at_depth_zero(raw_str) if (parsed := _parse_single_ingredient(item))]
+    cleaned_str = _sanitize_ocr(raw_str)
+    return [parsed for item in _split_at_depth_zero(cleaned_str) if (parsed := _parse_single_ingredient(item))]
