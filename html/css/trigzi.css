@@ -188,3 +188,31 @@ footer nav a:hover {
     font-size: 1rem;
     margin: 0;
 }
+
+@media (max-width: 768px) {
+    .logo {
+        width: 60px; /* Reduced from 80px */
+    }
+
+    .trigzi {
+        font-size: 2.5rem; /* Reduced from 4rem */
+    }
+
+    .back-link {
+        display: block;
+        width: max-content;
+    }
+
+    .content-container {
+        padding: 0; /* Removes outer margin/padding */
+    }
+
+    .content-box {
+        box-shadow: none; /* Optional: removes shadow since it's edge-to-edge */
+        padding: 2rem 1.5rem; /* Keeps text from touching the screen edge */
+    }
+
+	.store-links {
+        margin-bottom: 1.5rem; /* Reduced from 3rem */
+    }
+}

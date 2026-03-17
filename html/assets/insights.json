@@ -1,0 +1,152 @@
+{
+  "Bowel Actions": {
+    "title": "Bowel Actions per Day",
+    "emoji": "📊",
+    "content": "A healthy baseline varies wildly from person to person. Medically, anywhere from 3 times a day to 3 times a week is considered normal. Tracking sudden deviations from your personal baseline helps identify dietary triggers or stress impacts.",
+    "actionable_tip": "Look for patterns between high-frequency days and your fiber or caffeine intake.",
+    "links": [
+      ["Continence Foundation: Normal Bowel Function", "https://www.continence.org.au/bristol-stool-chart"]
+    ]
+  },
+  "Bad": {
+    "title": "Low Mood",
+    "emoji": "☹️",
+    "content": "A sudden, unexplained drop in mood can be linked directly to gut inflammation. Over 90% of your body's serotonin (the 'happy chemical') is produced in your digestive tract. Disruptions here heavily impact your emotional state.",
+    "actionable_tip": "Check your logs for highly processed or inflammatory foods eaten 12-24 hours prior. If low mood persists, please reach out for support.",
+    "links": [
+      ["Beyond Blue", "https://www.beyondblue.org.au/"],
+      ["Black Dog Institute", "https://www.blackdoginstitute.org.au/"]
+    ]
+  },
+  "Okay": {
+    "title": "Neutral Mood",
+    "emoji": "😐",
+    "content": "Your gut-brain axis is functioning normally, though you may be experiencing mild systemic stress or fatigue preventing a fully optimal state.",
+    "actionable_tip": "Focus on hydration and whole foods today to give your microbiome a rest.",
+    "links": []
+  },
+  "Good": {
+    "title": "Optimal Mood",
+    "emoji": "🙂",
+    "content": "Excellent gut-brain connection! A happy microbiome produces plenty of neurotransmitters, leading to stable energy and a positive mental state.",
+    "actionable_tip": "Review what you ate yesterday—you may have found a highly compatible combination of foods.",
+    "links": []
+  },
+  "Nausea": {
+    "title": "Nausea",
+    "emoji": "🤢",
+    "content": "Often a sign of delayed gastric emptying or a localized reaction to a trigger food. If nausea consistently follows meals, it may be linked to high-fat foods, strong spices, or specific intolerances.",
+    "actionable_tip": "Note if symptoms occur immediately after eating (stomach) or several hours later (small intestine).",
+    "links": []
+  },
+  "Vomit": {
+    "title": "Vomiting",
+    "emoji": "🤮",
+    "content": "A severe acute reflex indicating your body is forcefully expelling an irritant. This is usually caused by foodborne illness, a strong intolerance, or viral infection.",
+    "actionable_tip": "Focus strictly on hydration and electrolyte replacement. Avoid solid foods until the reflex passes.",
+    "links": [
+      ["Healthdirect: Vomiting", "https://www.healthdirect.gov.au/vomiting"]
+    ]
+  },
+  "Heartburn": {
+    "title": "Heartburn",
+    "emoji": "🔥",
+    "content": "Occurs when stomach acid flows back into the esophagus. Common dietary triggers include acidic foods, spicy dishes, caffeine, and high-fat meals which relax the esophageal sphincter.",
+    "actionable_tip": "Avoid lying down for at least 2 hours after a triggering meal.",
+    "links": [
+      ["Mayo Clinic: GERD & Heartburn", "https://www.mayoclinic.org/diseases-conditions/heartburn/symptoms-causes/syc-20373223"]
+    ]
+  },
+  "Cramps": {
+    "title": "Intestinal Cramps",
+    "emoji": "⚡️",
+    "content": "Spasms in the intestinal wall, often caused by trapped gas, acute localized inflammation, or an overly rapid transit time as your gut tries to move an irritant.",
+    "actionable_tip": "Gentle movement, hydration, or a warm compress can help relax intestinal muscles.",
+    "links": []
+  },
+  "Bloating": {
+    "title": "Bloating",
+    "emoji": "🤰",
+    "content": "Usually caused by excess gas production when gut bacteria ferment undigested carbohydrates (like FODMAPs) in the large intestine. It can also be related to delayed transit time.",
+    "actionable_tip": "If bloating is chronic, consider tracking high-FODMAP foods like onions, garlic, and wheat.",
+    "links": [
+      ["Monash University: Low FODMAP Diet", "https://www.monashfodmap.com/"]
+    ]
+  },
+  "Gas": {
+    "title": "Excess Gas",
+    "emoji": "💨",
+    "content": "A natural byproduct of gut bacteria fermenting carbohydrates. While normal in moderate amounts, excessive or painful gas usually points to specific unabsorbed sugars or fibers.",
+    "actionable_tip": "Track your intake of legumes, artificial sweeteners, and cruciferous vegetables.",
+    "links": []
+  },
+  "Constipation": {
+    "title": "Constipation",
+    "emoji": "🧱",
+    "content": "A slowed transit time causes the colon to absorb too much water, making stools hard to pass. This is frequently linked to low dietary fiber, dehydration, or changes in routine.",
+    "actionable_tip": "Increase water intake alongside soluble fiber sources like oats or psyllium husk.",
+    "links": [
+      ["Healthdirect: Constipation", "https://www.healthdirect.gov.au/constipation"]
+    ]
+  },
+  "Normal": {
+    "title": "Normal Digestion",
+    "emoji": "💩",
+    "content": "Perfect digestion! Your transit time and water absorption are perfectly balanced, indicating your current diet and stress levels are well-tolerated.",
+    "actionable_tip": "Keep doing what you're doing. Save recent meals as safe baselines.",
+    "links": []
+  },
+  "Diarrhoea": {
+    "title": "Diarrhoea",
+    "emoji": "💦",
+    "content": "A rapid transit time where the colon doesn't absorb enough water. Your body is likely trying to rapidly flush out an irritant, pathogen, or unabsorbed osmotic sugars.",
+    "actionable_tip": "Stay hydrated and temporarily avoid high-fat, high-sugar, or heavily spiced foods.",
+    "links": [
+      ["Healthdirect: Diarrhoea", "https://www.healthdirect.gov.au/diarrhoea"]
+    ]
+  },
+  "Headache": {
+    "title": "Headache",
+    "emoji": "🤕",
+    "content": "Can be caused directly by dehydration resulting from GI distress, or by systemic inflammation originating in the gut crossing the blood-brain barrier.",
+    "actionable_tip": "Drink a large glass of water and check for known trigger foods (like aged cheeses or artificial additives) in the last 24 hours.",
+    "links": []
+  },
+  "Fatigue": {
+    "title": "Fatigue",
+    "emoji": "😴",
+    "content": "Digestive distress takes a massive amount of cellular energy. If your body is fighting a food intolerance or managing gut inflammation, it will divert energy away from your muscles and brain.",
+    "actionable_tip": "Ensure you are getting enough hydration, as fluid loss from GI distress compounds physical fatigue.",
+    "links": []
+  },
+  "Brainfog": {
+    "title": "Brain Fog",
+    "emoji": "🧠",
+    "content": "Systemic inflammation originating in the gut can interfere with neural function, leading to difficulty focusing, poor memory, and a feeling of mental cloudiness.",
+    "actionable_tip": "Track this alongside systemic symptoms like fatigue to spot hidden inflammatory triggers.",
+    "links": []
+  },
+  "Acne": {
+    "title": "Acne & Breakouts",
+    "emoji": "🍕",
+    "content": "The gut-skin axis is heavily researched. Imbalances in gut bacteria or spikes in blood sugar can increase sebum production and drive systemic skin inflammation.",
+    "actionable_tip": "Look for patterns involving high-sugar, high-dairy, or highly processed food intake.",
+    "links": [
+      ["DermNet: Diet and Acne", "https://dermnetnz.org/topics/diet-and-acne"]
+    ]
+  },
+  "Rash": {
+    "title": "Skin Rashes",
+    "emoji": "🧴",
+    "content": "Sudden rashes, eczema flare-ups, or hives can indicate a histamine reaction, a localized food allergy, or a compromised gut lining (leaky gut).",
+    "actionable_tip": "Note new foods or skin products. If accompanied by swelling or difficulty breathing, seek medical attention immediately.",
+    "links": []
+  },
+  "Unicorn": {
+    "title": "Unicorn Status",
+    "emoji": "🦄",
+    "content": "You've discovered the mythical baseline! Your digestion is flawless, your energy is boundless, and you probably sweat glitter. Whatever you ate today, keep doing it.",
+    "actionable_tip": "Save today's meal log as a 'Safe Day' template.",
+    "links": []
+  }
+}
