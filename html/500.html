@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>500 Internal Error - Trigzi</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+  html, body {
+    background: #f3f9f5;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .container {
+    text-align: center;
+    position: relative;
+    z-index: 10;
+    padding: 2rem;
+  }
+
+  /* The Stress Rings */
+  .pulse-ring {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    border: 3px solid #8b5cf6;
+    border-radius: 50%;
+    opacity: 0;
+    animation: pulse 2.5s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    z-index: -1;
+  }
+
+  .pulse-ring.two {
+    animation-delay: 0.8s;
+    border-color: #50c878;
+  }
+
+  .pulse-ring.three {
+    animation-delay: 1.6s;
+    border-color: #8b5cf6;
+  }
+
+  .error-code {
+    font-size: 8rem;
+    font-weight: 900;
+    color: #8b5cf6;
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -5px;
+    text-shadow: 4px 4px 0px rgba(80, 200, 120, 0.2);
+    animation: slight-jitter 4s infinite;
+  }
+
+  .message {
+    font-size: 2rem;
+    color: #333;
+    margin: 1.5rem 0 1rem;
+    font-weight: 700;
+  }
+
+  .sub-message {
+    color: #666;
+    margin-bottom: 2.5rem;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+
+  .btn {
+    display: inline-block;
+    background-color: #50c878;
+    color: #fff;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(80, 200, 120, 0.3);
+  }
+
+  .btn:hover {
+    background-color: #8b5cf6;
+    box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+    transform: translateY(-2px);
+  }
+
+  /* Animations */
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0.5); opacity: 0.8; }
+    100% { transform: translate(-50%, -50%) scale(3.5); opacity: 0; }
+  }
+
+  @keyframes slight-jitter {
+    0%, 100% { transform: rotate(0deg); }
+    1% { transform: rotate(-2deg); }
+    2% { transform: rotate(2deg); }
+    3% { transform: rotate(0deg); }
+  }
+</style>
+</head>
+<body>
+
+  <div class="pulse-ring"></div>
+  <div class="pulse-ring two"></div>
+  <div class="pulse-ring three"></div>
+
+  <div class="container">
+    <h1 class="error-code">500</h1>
+    <div class="message">Our servers hit a trigger.</div>
+    <div class="sub-message">Even our systems get a little overwhelmed sometimes. We've logged this symptom and our engineers are working on a remedy.</div>
+    
+    <a href="index.html" class="btn">Return to Safety</a>
+  </div>
+
+</body>
+</html>

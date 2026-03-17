@@ -1,0 +1,190 @@
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    text-align: center;
+    color: #333;
+    background-color: #f3f9f5; /* Soft complementary green */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.hero {
+    padding: 2rem 1rem 0rem;
+}
+
+.logo {
+    width: 80px; 
+    height: auto;
+    background: transparent;
+}
+
+.trigzi {
+    font-size: 4rem;
+    margin: 0.5rem 0 0.5rem;
+    color: #8b5cf6;
+}
+
+.tagline {
+    font-size: 2rem;
+    font-weight: normal;
+    color: #50c878;
+    margin-top: 0;
+}
+
+main {
+    flex: 1; /* Pushes footer to the bottom */
+    padding: 1rem;
+}
+
+.benefits-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+/* White box styling */
+.benefits-box {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 400px;
+    width: 100%;
+}
+
+.ticks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.ticks li {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.ticks li:last-child {
+    margin-bottom: 0;
+}
+
+.ticks li::before {
+    content: "✓";
+    color: #8b5cf6; /* Purple checkmark to match theme */
+    font-weight: bold;
+    margin-right: 12px;
+}
+
+/* App Store Icons */
+.store-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+.store-badge {
+    height: 48px; /* Standardize badge heights */
+    width: auto;
+}
+
+/* Content */
+.content-container {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem; /* Keeps it off the screen edges on mobile */
+}
+
+.content-box {
+    background-color: #ffffff; /* White box */
+    max-width: 800px; /* Constrains the width */
+    width: 100%;
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: left;
+    line-height: 1.6;
+}
+
+.content-box h2 {
+    color: #8b5cf6;
+    margin-top: 2rem;
+}
+
+.content-box h2:first-child {
+    margin-top: 0;
+}
+
+.content-box a {
+    color: #8b5cf6; /* Primary purple */
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.content-box a:hover {
+    color: #50c878; /* Tagline emerald on hover */
+    text-decoration: underline; /* Optional: adds a nice UX touch for inline links */
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    padding: 0.6rem 1.2rem;
+    background-color: #f3f9f5; /* Soft background */
+    color: #8b5cf6 !important; /* Forces purple, kills the default blue */
+    text-decoration: none !important; /* Kills the default underline */
+    font-weight: 700;
+    font-size: 1rem; /* Larger, more readable size */
+    border-radius: 25px; /* Pill shape */
+    transition: all 0.2s ease;
+}
+
+.back-link:hover {
+    background-color: #8b5cf6;
+    color: #ffffff !important;
+}
+
+/* Footer & Divider */
+footer {
+    background-color: #8b5cf6;
+    padding: 3rem 1rem;
+    margin-top: auto; 
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-divider {
+    display: none; 
+}
+
+footer nav {
+    margin-bottom: 1.5rem;
+}
+
+footer nav a {
+    margin: 0 1.5rem;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+footer nav a:hover {
+    color: #f3f8f5; /* Hover matches the main background */
+    text-decoration: underline;
+}
+
+.copyright {
+    color: #e8f5ed;
+    font-size: 1rem;
+    margin: 0;
+}
