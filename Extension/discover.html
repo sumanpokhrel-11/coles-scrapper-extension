@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Coles URL Discoverer</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: #f4f4f5;
+      color: #1a1a1a;
+      padding: 24px;
+      min-height: 100vh;
+    }
+
+    .container { max-width: 960px; margin: 0 auto; }
+
+    /* Header */
+    .header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+    .header h1 { font-size: 22px; color: #e01a22; }
+    .header p  { font-size: 13px; color: #666; margin-top: 2px; }
+
+    /* Cards */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 16px;
+      box-shadow: 0 1px 3px rgba(0,0,0,.08);
+    }
+    .card-title { font-size: 13px; font-weight: 700; color: #555; text-transform: uppercase; letter-spacing: .05em; margin-bottom: 12px; }
+
+    /* File load */
+    .file-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .file-label {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; background: #f0f0f0; border-radius: 6px;
+      cursor: pointer; font-size: 13px; font-weight: 600; color: #333;
+    }
+    .file-label:hover { background: #e4e4e4; }
+    #knownFile { display: none; }
+    #knownStatus { font-size: 13px; color: #666; }
+
+    /* Stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .stat-box { text-align: center; padding: 14px; background: #fafafa; border-radius: 8px; border: 1px solid #eee; }
+    .stat-num  { font-size: 26px; font-weight: 800; color: #e01a22; }
+    .stat-num.green  { color: #16a34a; }
+    .stat-num.amber  { color: #d97706; }
+    .stat-num.blue   { color: #2563eb; }
+    .stat-label { font-size: 11px; color: #777; margin-top: 3px; text-transform: uppercase; letter-spacing: .04em; }
+
+    /* Progress */
+    .progress-wrap { margin-top: 12px; }
+    .progress-bar  { height: 7px; background: #eee; border-radius: 4px; overflow: hidden; }
+    .progress-fill { height: 100%; background: #e01a22; border-radius: 4px; transition: width .3s; width: 0%; }
+    .progress-text { font-size: 12px; color: #888; margin-top: 6px; }
+
+    /* Controls */
+    .controls { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+    button {
+      padding: 9px 20px; border: none; border-radius: 6px;
+      font-size: 14px; font-weight: 600; cursor: pointer; transition: opacity .15s;
+    }
+    button:disabled { opacity: .45; cursor: not-allowed; }
+    .btn-red    { background: #e01a22; color: white; }
+    .btn-grey   { background: #e5e7eb; color: #374151; }
+    .btn-green  { background: #16a34a; color: white; }
+
+    /* Table */
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    thead th {
+      text-align: left; padding: 10px 12px;
+      background: #f9f9f9; color: #666; font-size: 11px;
+      text-transform: uppercase; letter-spacing: .05em;
+      border-bottom: 1px solid #eee;
+    }
+    tbody td { padding: 10px 12px; border-bottom: 1px solid #f3f3f3; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: #fafafa; }
+
+    .badge {
+      display: inline-block; padding: 2px 8px; border-radius: 10px;
+      font-size: 11px; font-weight: 600;
+    }
+    .badge-pending  { background: #f3f4f6; color: #6b7280; }
+    .badge-crawling { background: #fef3c7; color: #92400e; }
+    .badge-done     { background: #dcfce7; color: #166534; }
+    .badge-error    { background: #fee2e2; color: #991b1b; }
+
+    .pill { display: inline-block; padding: 2px 7px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-left: 4px; }
+    .pill-new { background: #fef3c7; color: #92400e; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <h1>🔍 Coles URL Discoverer</h1>
+      <p>Crawl every browse category to find product URLs, then filter out what's already scraped.</p>
+    </div>
+  </div>
+
+  <!-- Step 1: Load known products -->
+  <div class="card">
+    <div class="card-title">Step 1 — Load already-scraped products (for comparison)</div>
+    <div class="file-row">
+      <label class="file-label" for="knownFile">📂 Load coles-products-FINAL.json</label>
+      <input type="file" id="knownFile" accept=".json">
+      <span id="knownStatus">No file loaded — all discovered URLs will be treated as new</span>
+    </div>
+  </div>
+
+  <!-- Step 2: Stats -->
+  <div class="card">
+    <div class="card-title">Discovery Progress</div>
+    <div class="stats">
+      <div class="stat-box"><div class="stat-num" id="statCategories">0</div><div class="stat-label">Categories</div></div>
+      <div class="stat-box"><div class="stat-num blue" id="statTotal">0</div><div class="stat-label">URLs Found</div></div>
+      <div class="stat-box"><div class="stat-num green" id="statKnown">0</div><div class="stat-label">Already Scraped</div></div>
+      <div class="stat-box"><div class="stat-num amber" id="statNew">0</div><div class="stat-label">New URLs</div></div>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <div class="progress-text" id="progressText">Ready to start.</div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <div class="card">
+    <div class="controls">
+      <button id="btnStart" class="btn-red">▶ Start Discovery</button>
+      <button id="btnStop"  class="btn-grey" disabled>⏹ Stop</button>
+      <button id="btnDownload" class="btn-green" disabled>⬇ Download New URLs</button>
+    </div>
+  </div>
+
+  <!-- Category table -->
+  <div class="card" id="tableCard" style="display:none">
+    <div class="card-title">Category Breakdown</div>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th style="width:70px;text-align:center">Pages</th>
+          <th style="width:110px;text-align:center">Found</th>
+          <th style="width:90px;text-align:center">New</th>
+          <th style="width:90px;text-align:center">Status</th>
+        </tr>
+      </thead>
+      <tbody id="categoryBody"></tbody>
+    </table>
+  </div>
+
+</div>
+<script src="discover.js"></script>
+</body>
+</html>

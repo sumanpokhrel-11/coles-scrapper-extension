@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "Coles Product Scraper",
+  "version": "1.0.0",
+  "description": "Scrape product data from Coles website using your real browser session.",
+  "permissions": [
+    "tabs",
+    "storage",
+    "downloads",
+    "unlimitedStorage",
+    "notifications",
+    "alarms",
+    "offscreen"
+  ],
+  "host_permissions": [
+    "https://www.coles.com.au/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.coles.com.au/product/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Coles Product Scraper"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["discover.html", "offscreen.html"],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
