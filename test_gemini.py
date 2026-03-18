@@ -65,5 +65,5 @@ def check_gemini_key(api_key, model_name="gemini-2.5-flash"):
         print(f"ERROR: {str(e)}")
 
 if __name__ == "__main__":
-    MY_KEY = "AIzaSyDWeHq-irJUW9IbeahH4pZE1SoC3rHxhpA"
+    MY_KEY = ""  # needs key here
     check_gemini_key(MY_KEY)
